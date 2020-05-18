@@ -1,0 +1,74 @@
+<mat-card class="register-card">
+  <h2>Register</h2>
+    <mat-card-content>
+       <form class="register-form" [formGroup]="registerForm"  (ngSubmit)="registerSubmit()">
+       <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Name">
+              <mat-error *ngIf="r.name.errors && r.name.errors.required">Name is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email">
+              <mat-error *ngIf="r.email.errors && r.email.errors.required">Email is required</mat-error>
+              <mat-error *ngIf="r.email.errors && r.email.errors.email">Email must be a valid email address</mat-error>
+          </mat-form-field>
+         <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password"  placeholder="Password">
+            <mat-error *ngIf="r.password.errors && r.password.errors.required">Password is required</mat-error>
+            <mat-error *ngIf="r.password.errors && r.password.errors.minlength">Password must be at least 6 characters</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Mobile</mat-label>
+            <input matInput formControlName="mobile" placeholder="Mobile">
+              <mat-error *ngIf="r.mobile.errors && r.mobile.errors.required">Mobile is required</mat-error>
+           </mat-form-field>
+             <mat-form-field class="example-full-width">
+                <input type="text" placeholder="Country" formControlName="country" matInput [matAutocomplete]="auto" (change)="onChangeCountry($event.target.value)">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let country of countries" [value]="country.id">{{country.country_name}}</mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <mat-grid-list cols="2" rowHeight="50px" gutterSize="10px">
+                <mat-grid-tile >
+                  <mat-form-field class="example-full-width">
+                    <input type="text" placeholder="State" formControlName="state" matInput [matAutocomplete]="auto" (change)="onChangeState($event.target.value)">
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let state of states" [value]="state.id">{{state.state_name}}</mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <mat-form-field class="example-full-width">
+                    <input type="text" placeholder="City" formControlName="city" matInput [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let city of cities" [value]="city.id">{{city.city_name}}</mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </mat-grid-tile>
+                </mat-grid-list>
+              
+                <mat-grid-list cols="2" rowHeight="50px"  gutterSize="10px">
+                  <mat-grid-tile>
+           <mat-form-field>
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street" placeholder="Street">
+              <mat-error *ngIf="r.street.errors && r.street.errors.required">Street is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Pin</mat-label>
+            <input matInput formControlName="pin" placeholder="Pin">
+              <mat-error *ngIf="r.pin.errors && r.pin.errors.required">Pin is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+        <div class="field-action">
+          <input  class="submit-btn fl" type="submit"  value="Register">
+        </div>
+       
+      </form>
+    </mat-card-content>
+  </mat-card>

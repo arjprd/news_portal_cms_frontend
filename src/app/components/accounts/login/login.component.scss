@@ -1,0 +1,29 @@
+.login-card{
+    height: 75px;
+    margin: 10px;
+    mat-card-content{
+        float: right;
+        width: 50%;
+        .field-gp{
+            width: 83%;
+        }
+    }
+    mat-form-field{
+        padding-left:20px;
+        width: 233px;
+    }  
+    .login-form{
+        display:flex
+    } 
+    
+    .forgot-div{
+        padding-left: 10px;
+        padding-top: 2px;
+        display: inline-block;
+        float: right;
+    }
+    .field-action{
+        padding: 10px;
+        padding-right: 0px;
+    }
+}

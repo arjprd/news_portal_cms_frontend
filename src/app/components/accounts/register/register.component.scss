@@ -1,0 +1,19 @@
+.register-card{
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    form{
+        text-align: center;
+        .mat-form-field{
+            width: 100%;
+        }
+        .fl{
+            float: left;
+        }
+    }
+    h2{
+        margin-bottom: 0px;
+    }
+
+    
+}
